@@ -25,30 +25,6 @@ export const ArticleParamsForm = (formProps: ArticleParamsFormType) => {
 		onChange: setIsOpen,
 	});
 
-	// useEffect(() => {
-	// 	const closeSidebar = (e: Event) => {
-	// 		e.stopPropagation();
-	// 		if (isOpen) {
-	// 			if ((e as unknown as KeyboardEvent).key === 'Escape') {
-	// 				setIsOpen(false);
-	// 			} else if (
-	// 				!sidebarRef.current?.contains((e as MouseEvent).target as Node) &&
-	// 				!sidebarButtonRef.current?.contains((e as MouseEvent).target as Node)
-	// 			) {
-	// 				setIsOpen(false);
-	// 			}
-	// 		}
-	// 	};
-
-	// 	document.addEventListener('click', closeSidebar);
-	// 	document.addEventListener('keydown', closeSidebar);
-
-	// 	return () => {
-	// 		document.removeEventListener('click', closeSidebar);
-	// 		document.removeEventListener('keydown', closeSidebar);
-	// 	};
-	// }, []);
-
 	return (
 		<>
 			<ArrowButton

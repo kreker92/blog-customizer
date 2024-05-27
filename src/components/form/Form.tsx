@@ -22,8 +22,10 @@ type FormProps = {
 };
 
 export const Form = ({ styles, articleState, onChange }: FormProps) => {
-	const [localArticleState, setLocalArticleState] =
-		useArticleState(articleState);
+	const [localArticleState, setLocalArticleState] = useArticleState<
+		ArticleStateType,
+		OptionType
+	>(articleState);
 	const defaultStateRef = useRef(articleState);
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
