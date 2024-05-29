@@ -1,18 +1,14 @@
 import arrow from 'src/images/arrow.svg';
-
 import styles from './ArrowButton.module.scss';
-import { MutableRefObject } from 'react';
 import clsx from 'clsx';
 
 /** Функция для обработки открытия/закрытия формы */
-export type OnClick = () => void;
-type ArrowButtonProps = {
-	onClick: OnClick;
-	btnRef?: MutableRefObject<HTMLDivElement | null>;
-	isOpened?: boolean;
-};
+export type OnClick = (e: React.MouseEvent<HTMLDivElement>) => void;
 
-export const ArrowButton = (props: ArrowButtonProps) => {
+export const ArrowButton = (props: {
+	onClick: OnClick;
+	isOpened?: boolean;
+}) => {
 	return (
 		/* Не забываем указаывать role и aria-label атрибуты для интерактивных элементов */
 		<div
@@ -23,7 +19,6 @@ export const ArrowButton = (props: ArrowButtonProps) => {
 				[styles.container]: true,
 				[styles.container_open]: props.isOpened,
 			})}
-			ref={props.btnRef}
 			onClick={props.onClick}>
 			<img
 				src={arrow}

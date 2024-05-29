@@ -26,14 +26,22 @@ export const useOutsideClickClose = ({
 						(target as HTMLElement).tagName.toLocaleLowerCase() === tag
 				)
 			) {
-				onChange?.(false);
+				onChange(false);
+			}
+		};
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') {
+				onChange(false);
 			}
 		};
 
 		window.addEventListener('click', handleClick);
+		window.addEventListener('keydown', handleKeyDown);
 
 		return () => {
 			window.removeEventListener('click', handleClick);
+			window.addEventListener('keydown', handleKeyDown);
 		};
 	}, [isOpen, onChange]);
 };
