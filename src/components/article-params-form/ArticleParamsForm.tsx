@@ -46,9 +46,8 @@ export const ArticleParamsForm = (formProps: ArticleParamsFormType) => {
 
 	useOutsideClickClose({
 		isOpen,
-		refs: [sidebarRef],
-		tags: ['li'],
-		onChange: setIsOpen,
+		rootRef: sidebarRef,
+		onClose: () => setIsOpen(false),
 	});
 
 	return (
