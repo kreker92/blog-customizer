@@ -33,12 +33,12 @@ export const useOutsideClickClose = ({
 			}
 		};
 
-		document.addEventListener('click', handleClick);
+		document.addEventListener('mousedown', handleClick);
 		document.addEventListener('keydown', handleEscape);
 
 		return () => {
-			document.removeEventListener('click', handleClick);
-			document.addEventListener('keydown', handleEscape);
+			document.removeEventListener('mousedown', handleClick);
+			document.removeEventListener('keydown', handleEscape);
 		};
 	}, [isOpen, onClose, rootRef]);
 };
